@@ -1,5 +1,5 @@
 from brian2 import *
-
+import matplotlib as plt
 def pellet():
     controlStim = ExtracellStim("Control")
     i = float(4)
@@ -779,6 +779,15 @@ def MotilityModel_CES(stimPackage, intensity="low", mode="deterministic", pellet
     title(stimPackage['Name'])
     xlabel('Time (s)')
     ylabel('Position (cm)')
-    plt.close()
+    #plt.close()
 
     return {'Fig': A, 'Transit_time': transittime, 'Name': stimPackage['Name']}
+
+
+if __name__ == "__main__":
+    controlStim = ExtracellStim("Control")
+    control = MotilityModel_CES(controlStim,"moderate")
+    control['Fig'].show()
+
+
+
